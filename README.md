@@ -33,7 +33,7 @@ Performs a simple computation and returns the result along with a message powere
 }
 ```
 
-### POST /data
+### POST /items
 
 Stores data in the PostgreSQL database and returns a success message.
 
@@ -52,7 +52,7 @@ Stores data in the PostgreSQL database and returns a success message.
 }
 ```
 
-### GET /data/{id}
+### GET /items/{id}
 
 Retrieves data from the PostgreSQL database based on the provided ID.
 

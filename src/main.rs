@@ -16,6 +16,11 @@ struct Item {
     name: String,
 }
 
+#[derive(Serialize, Deserialize)]
+struct NewItem {
+    name: String,
+}
+
 #[get("/compute")]
 async fn compute() -> impl Responder {
     let result = 42; // Example computation
@@ -27,7 +32,7 @@ async fn compute() -> impl Responder {
 }
 
 #[post("/items")]
-async fn create_item(pool: web::Data<PgPool>, item: web::Json<Item>) -> impl Responder {
+async fn create_item(pool: web::Data<PgPool>, item: web::Json<NewItem>) -> impl Responder {
     let result = sqlx::query!(
         "INSERT INTO items (name) VALUES ($1) RETURNING id, name",
         item.name
